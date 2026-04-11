@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/nextjs-vite"
+import { useEffect } from "react"
 import { Roboto, Source_Sans_3, Geist_Mono } from "next/font/google"
 import "../app/globals.css"
 
@@ -36,6 +37,23 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const isDark = context.globals.backgrounds?.value === "hsl(0 0% 3.9%)"
+
+      useEffect(() => {
+        // Apply font variables and dark mode to document.body so that
+        // portal-rendered components (Dialog, Sheet, Drawer, etc.) inherit them.
+        const classes = fontClasses.split(" ")
+        document.body.classList.add(...classes)
+        return () => document.body.classList.remove(...classes)
+      }, [])
+
+      useEffect(() => {
+        if (isDark) {
+          document.body.classList.add("dark")
+        } else {
+          document.body.classList.remove("dark")
+        }
+      }, [isDark])
+
       return (
         <div className={`${fontClasses}${isDark ? " dark" : ""}`}>
           <div className="bg-background text-foreground min-h-screen p-8">
