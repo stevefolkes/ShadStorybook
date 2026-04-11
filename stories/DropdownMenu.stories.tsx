@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import { Cloud, CreditCard, Github, Keyboard, LifeBuoy, LogOut, Mail, MessageSquare, Plus, PlusCircle, Settings, User, UserPlus, Users } from "lucide-react"
+import { CreditCard, Github, LifeBuoy, LogOut, Mail, MessageSquare, PlusCircle, Settings, User, UserPlus, Users } from "lucide-react"
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
-  DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator,
+  DropdownMenuLabel, DropdownMenuSeparator,
   DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent,
   DropdownMenuSubTrigger, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -44,14 +44,12 @@ export const Default: Story = {
             <DropdownMenuSubTrigger>
               <UserPlus /> Invite users
             </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem><Mail /> Email</DropdownMenuItem>
-                <DropdownMenuItem><MessageSquare /> Message</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem><PlusCircle /> More…</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
+            <DropdownMenuSubContent>
+              <DropdownMenuItem><Mail /> Email</DropdownMenuItem>
+              <DropdownMenuItem><MessageSquare /> Message</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem><PlusCircle /> More…</DropdownMenuItem>
+            </DropdownMenuSubContent>
           </DropdownMenuSub>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
