@@ -1,5 +1,18 @@
 import type { Preview } from "@storybook/nextjs-vite"
+import { Roboto, Source_Sans_3, Geist_Mono } from "next/font/google"
 import "../app/globals.css"
+
+const robotoHeading = Roboto({ subsets: ["latin"], variable: "--font-heading" })
+const sourceSans3 = Source_Sans_3({ subsets: ["latin"], variable: "--font-sans" })
+const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
+
+const fontClasses = [
+  robotoHeading.variable,
+  sourceSans3.variable,
+  fontMono.variable,
+  "font-sans",
+  "antialiased",
+].join(" ")
 
 const preview: Preview = {
   parameters: {
@@ -24,7 +37,7 @@ const preview: Preview = {
     (Story, context) => {
       const isDark = context.globals.backgrounds?.value === "hsl(0 0% 3.9%)"
       return (
-        <div className={isDark ? "dark" : ""}>
+        <div className={`${fontClasses}${isDark ? " dark" : ""}`}>
           <div className="bg-background text-foreground min-h-screen p-8">
             <Story />
           </div>
