@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import { CreditCard, Github, LifeBuoy, LogOut, Mail, MessageSquare, PlusCircle, Settings, User, UserPlus, Users } from "lucide-react"
+import { CreditCard, GitFork, LifeBuoy, LogOut, Mail, MessageSquare, PlusCircle, Settings, User, UserPlus, Users } from "lucide-react"
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
   DropdownMenuLabel, DropdownMenuSeparator,
@@ -17,7 +17,7 @@ type Story = StoryObj
 
 export const Default: Story = {
   render: () => (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>
@@ -54,7 +54,7 @@ export const Default: Story = {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Github /> GitHub
+          <GitFork /> GitHub
         </DropdownMenuItem>
         <DropdownMenuItem>
           <LifeBuoy /> Support
@@ -70,7 +70,7 @@ export const Default: Story = {
 
 export const Simple: Story = {
   render: () => (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Actions</Button>
       </DropdownMenuTrigger>
@@ -81,5 +81,24 @@ export const Simple: Story = {
         <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  ),
+}
+
+// Always-open variant so the menu content is visible without interaction
+export const Open: Story = {
+  render: () => (
+    <div className="pb-48">
+      <DropdownMenu open modal={false}>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">Actions</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>Edit</DropdownMenuItem>
+          <DropdownMenuItem>Duplicate</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   ),
 }
