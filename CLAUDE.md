@@ -42,6 +42,18 @@ lib/utils.ts          # cn() helper (clsx + tailwind-merge)
 hooks/use-mobile.ts   # useIsMobile hook
 ```
 
+## Git workflow
+
+Commit and push to GitHub regularly throughout any work session — after each logical unit of change (a new story, a bug fix, a config tweak). Never batch everything into one commit at the end.
+
+```bash
+git add <files>
+git commit -m "Short description of what changed and why"
+git push
+```
+
+Commit messages should say *what* changed and *why*, not just restate the diff. Push after every commit so progress is never lost locally.
+
 ## Key conventions
 
 **Theme:** Tailwind CSS 4 with CSS custom properties defined in `app/globals.css`. No `tailwind.config.ts` — configuration is done via CSS. The `@custom-variant dark (&:is(.dark *))` pattern means dark mode is class-based (`.dark` on a parent).
