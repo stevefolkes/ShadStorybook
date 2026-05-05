@@ -17,6 +17,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { NavUser } from "@/components/nav-user"
 import { SearchForm } from "@/components/search-form"
+import { VersionSwitcher } from "@/components/version-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -51,6 +52,7 @@ const data = {
     email: "bob@example.com",
     avatar: "",
   },
+  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   topNav: [
     { title: "Home", url: "#", icon: House },
     { title: "People", url: "#", icon: UsersRound, isActive: true },
@@ -106,6 +108,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
+        <VersionSwitcher
+          versions={data.versions}
+          defaultVersion={data.versions[0]}
+        />
         <SearchForm />
       </SidebarHeader>
 
