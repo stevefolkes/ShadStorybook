@@ -22,7 +22,7 @@ function Swatch({ token, label, tailwind, fgToken, hex }: SwatchProps) {
   const fg = fgToken ? `var(${fgToken})` : undefined
 
   return (
-    <div className="rounded-lg overflow-hidden border border-border text-left min-w-0">
+    <div className="w-[250px] rounded-lg overflow-hidden border border-border text-left">
       {/* Colour block */}
       <div
         className="h-16 w-full flex items-center justify-center"
@@ -52,7 +52,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       <h2 className="text-base font-semibold text-foreground border-b border-border pb-2">
         {title}
       </h2>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+      <div className="flex flex-wrap gap-3">
         {children}
       </div>
     </section>
