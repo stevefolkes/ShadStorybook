@@ -326,10 +326,12 @@ export default function Page() {
         {/* ── DISPLAY ───────────────────────────────────────────────────── */}
         <Section title="Display">
           <Tile label="Badge">
-            <Badge>Default</Badge>
-            <Badge variant="secondary">Secondary</Badge>
-            <Badge variant="destructive">Destructive</Badge>
-            <Badge variant="outline">Outline</Badge>
+            <Badge variant="grey">Grey</Badge>
+            <Badge variant="blue">Blue</Badge>
+            <Badge variant="yellow">Yellow</Badge>
+            <Badge variant="purple">Purple</Badge>
+            <Badge variant="green">Green</Badge>
+            <Badge variant="red">Red</Badge>
           </Tile>
 
           <Tile label="Avatar">
@@ -403,7 +405,7 @@ export default function Page() {
                 {[["INV001","Paid","$250.00"],["INV002","Pending","$150.00"],["INV003","Unpaid","$350.00"]].map(([inv,status,amt]) => (
                   <TableRow key={inv}>
                     <TableCell className="font-medium">{inv}</TableCell>
-                    <TableCell><Badge variant={status === "Paid" ? "default" : status === "Pending" ? "secondary" : "destructive"}>{status}</Badge></TableCell>
+                    <TableCell><Badge variant={status === "Paid" ? "green" : status === "Pending" ? "yellow" : "red"}>{status}</Badge></TableCell>
                     <TableCell className="text-right">{amt}</TableCell>
                   </TableRow>
                 ))}

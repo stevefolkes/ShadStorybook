@@ -34,7 +34,7 @@ export const Default: Story = {
           <TableRow key={invoice.invoice}>
             <TableCell className="font-medium">{invoice.invoice}</TableCell>
             <TableCell>
-              <Badge variant={invoice.paymentStatus === "Paid" ? "default" : invoice.paymentStatus === "Pending" ? "secondary" : "destructive"}>
+              <Badge variant={invoice.paymentStatus === "Paid" ? "green" : invoice.paymentStatus === "Pending" ? "yellow" : "red"}>
                 {invoice.paymentStatus}
               </Badge>
             </TableCell>
