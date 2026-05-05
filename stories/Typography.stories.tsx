@@ -43,7 +43,7 @@ const styles = [
     size: "16px",
     weight: "600",
     lineHeight: "20px",
-    tailwind: "text-base",
+    tailwind: "text-title",
     className: "text-base font-semibold leading-5",
   },
   {
