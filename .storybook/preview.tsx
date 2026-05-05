@@ -33,6 +33,11 @@ const preview: Preview = {
     a11y: {
       test: "todo",
     },
+    options: {
+      storySort: {
+        order: ["Design System", "UI"],
+      },
+    },
   },
   decorators: [
     (Story, context) => {
