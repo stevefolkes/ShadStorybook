@@ -3,6 +3,21 @@ import { useEffect } from "react"
 import { Roboto, Source_Sans_3, Geist_Mono } from "next/font/google"
 import "../app/globals.css"
 
+export const globalTypes = {
+  theme: {
+    name: "Theme",
+    defaultValue: "light",
+    toolbar: {
+      icon: "moon",
+      items: [
+        { value: "light", title: "Light", icon: "sun" },
+        { value: "dark",  title: "Dark",  icon: "moon" },
+      ],
+      dynamicTitle: true,
+    },
+  },
+}
+
 const robotoHeading = Roboto({ subsets: ["latin"], variable: "--font-heading" })
 const sourceSans3 = Source_Sans_3({ subsets: ["latin"], variable: "--font-sans" })
 const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
@@ -41,7 +56,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const isDark = context.globals.backgrounds?.value === "hsl(0 0% 3.9%)"
+      const isDark = context.globals.theme === "dark"
 
       useEffect(() => {
         // Apply font variables and dark mode to document.body so that
@@ -61,7 +76,7 @@ const preview: Preview = {
 
       return (
         <div className={`${fontClasses}${isDark ? " dark" : ""}`}>
-          <div className="bg-background text-foreground min-h-screen p-8">
+          <div className="bg-background text-foreground min-h-dvh p-8">
             <Story />
           </div>
         </div>
