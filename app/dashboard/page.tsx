@@ -1,5 +1,3 @@
-"use client"
-import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
@@ -16,17 +14,8 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 
-const meta: Meta = {
-  title: "UI/Sidebar",
-  tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
-}
-export default meta
-type Story = StoryObj
-
-export const Sidebar01: Story = {
-  name: "Sidebar 01",
-  render: () => (
+export default function Page() {
+  return (
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
@@ -58,5 +47,5 @@ export const Sidebar01: Story = {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  ),
+  )
 }
